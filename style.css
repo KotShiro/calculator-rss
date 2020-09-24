@@ -30,8 +30,8 @@ div {
 .display {
     flex-direction: column;
 
-    height: 60px;
-
+    min-height: 60px;
+    
     padding: 15px;
     margin-bottom: 25px;
 
@@ -45,12 +45,14 @@ div {
     height: 50%;
     align-items: center;
     font-size: 16px;
+    word-break: break-all;
 }
 #inOutLine {
     justify-content: flex-end;
     height: 50%;
     align-items: center;
     font-size: 32px;
+    word-break: break-all;
 
 }
 

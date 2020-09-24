@@ -8,12 +8,12 @@ const insertInLine = (num) => {
     console.log(num);
     console.log(line);
     console.log(limitStr(line));
-    if(limitStr(line)){
-        line += num;
-        document.getElementById("inOutLine").innerHTML = line;
-    }
-    // line += num;
-    // document.getElementById("inOutLine").innerHTML = line;
+    // if(limitStr(line)){
+    //     line += num;
+    //     document.getElementById("inOutLine").innerHTML = line;
+    // }
+    line += num;
+    document.getElementById("inOutLine").innerHTML = line;
 }
 
 const cliner = () => {
@@ -80,7 +80,7 @@ const decision = (numberTwo) => {
         letReset();
     }
     document.getElementById("memoryLine").innerHTML = '';
-    document.getElementById("inOutLine").innerHTML = String(result).substr(0,11);
+    document.getElementById("inOutLine").innerHTML = String(result).substr(0,44);
     letReset();
 }
 
@@ -92,7 +92,7 @@ const letReset = () => {
     oper = '';
 }
 
-const limitStr = (str) => str.length <= 11;
+const limitStr = (str) => str.length <= 44;
 
 const parsLineIn = () => {
     return document.getElementById('inOutLine').innerHTML;

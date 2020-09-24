@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@669&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div id="memoryLine"></div>
+            <div id="inOutLine"></div>
+        </div>
+        <div class="keyboard">
+            <div class="column-cl">
+                <div onclick="cliner()" class="btn-em a-em">AC</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">1</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">4</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">7</div>
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">√</div>
+            </div>
+            <div class="column-cl">
+                <div onclick="clinerIn()" class="btn-em a-em">DEL</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">2</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">5</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">8</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">0</div>
+            </div>
+            <div class="column-cl">
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">/</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">3</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">6</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em">9</div>
+                <div onclick="insertInLine(this.innerHTML)" class="btn-em a-em">.</div>
+            </div>
+            <div class="column-cl">
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">*</div>
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">+</div>
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">-</div>
+                <div onclick="operation(parsLineIn(), this.innerHTML)" class="btn-em a-em">xª</div>
+                <div onclick="decision(parsLineIn())" class="btn-em a-em">=</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        changeBackground();
+    </script>
+</body>
+</html>

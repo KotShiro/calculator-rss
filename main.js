@@ -20,17 +20,30 @@ const clinerIn = () => {
 
 const operation = (numberOne, operChar) => {
     if (oper !== '' && oper !== operChar && oper !== '√') {
-        oper = operChar;
-        if (document.getElementById("inOutLine").innerHTML !== ''){
-         line = '';
-         document.getElementById("inOutLine").innerHTML = '';   
+        if (operChar === '-' && document.getElementById("inOutLine").innerHTML === '') {
+            line = '-' + numberOne;
+            document.getElementById("inOutLine").innerHTML = '-'+ numberOne ;
         }
-        if (operChar === 'xª') {
-            oper = operChar.substring(2,1);
+        else {
+            if (document.getElementById("inOutLine").innerHTML !== '') {
+                p1 = document.getElementById("memoryLine").innerHTML;
+                p1 = p1.substring(0,p1.length - 1)
+                let operOp = p1.substring(p1.length - 1);
+                decision(numberOne, operOp);
+            }
+            oper = operChar;
+            if (document.getElementById("inOutLine").innerHTML !== ''){
+             line = '';
+             document.getElementById("inOutLine").innerHTML = '';   
+            }
+            if (operChar === 'xª') {
+                oper = operChar.substring(2,1);
+            }
+            document.getElementById("memoryLine").innerHTML = `${p1}${oper}`;
+            document.getElementById("inOutLine").innerHTML = '';
+    
         }
-        document.getElementById("memoryLine").innerHTML = `${p1}${oper}`;
-        document.getElementById("inOutLine").innerHTML = '';
-    }
+   }
     else {
         if (lineMem !== '') {
             p1 = document.getElementById("memoryLine").innerHTML;
@@ -73,35 +86,44 @@ const operation = (numberOne, operChar) => {
 }
 
 const decision = (numberTwo, operDec = '') => {
+    if (lineMem === '', operDec ==='') {
+        result = numberTwo;
+    }
+
     p1 = Number(p1);
     p2 = Number(numberTwo);
     lineMem = '';
 
     if (oper === '+'){
-        // Math.round(eval(display.innerHTML)*100)*0.01
-        result = Math.round((p1 + p2)*100)*0.01;
+        result = Math.round((p1 + p2)*10000)*0.0001;
         changeBackground(result);
     }
     if (oper === '-'){
-        result = Math.round((p1 - p2)*100)*0.01;
+        result = Math.round((p1 - p2)*10000)*0.0001;
         changeBackground(result);
     }
     if (oper === '*'){
-        result = Math.round((p1 * p2)*100)*0.01;
+        result = Math.round((p1 * p2)*10000)*0.0001;
         changeBackground(result);
     }
     if (oper === '/'){
-        result = Math.round((p1 / p2)*100)*0.01;
+        result = Math.round((p1 / p2)*10000)*0.0001;
         changeBackground(result);
     }
     if (oper === 'ª'){
-        result = Math.round((p1 ** p2)*100)*0.01;
+        result = p1 ** p2;
         changeBackground(result);
     }
     if (oper === '√'){
+        
         result = Math.sqrt(p1);
         document.getElementById("memoryLine").innerHTML = '';
         document.getElementById("inOutLine").innerHTML = String(result).substr(0,11);
+        if (document.getElementById("inOutLine").innerHTML === 'NaN') {
+            alert('Error'); 
+            result = '';
+            document.getElementById("inOutLine").innerHTML = '';
+        }
         changeBackground(result);
         letReset();
     }
@@ -110,17 +132,23 @@ const decision = (numberTwo, operDec = '') => {
         document.getElementById("memoryLine").innerHTML = lineMem;
         document.getElementById("inOutLine").innerHTML = '';
         p1 = result;
-        line = '';    
+        line = ''; 
+        if (result === NaN) {
+            alert('Error');
+        }   
     }
     else {
         document.getElementById("memoryLine").innerHTML = '';
         document.getElementById("inOutLine").innerHTML = String(result).substr(0,44);    
+        if (result === NaN) {
+            alert('Error'); 
+        }
         letReset();
     }
 }
 
 const letReset = () => {
-    line = '', lineMem = '', p1 = '', p2 = '', oper = '';
+    line = '', lineMem = '', p1 = '', p2 = '', oper = '',operOp = '';
 }
 
 const zeroCheckOne = (str, numZero) => {

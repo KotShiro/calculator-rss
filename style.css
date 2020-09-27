@@ -7,6 +7,7 @@ body {
     justify-content: center;
     font-size: 23px;
     font-family: Orbitron, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(1deg, #E9CFBA, #5197b8);
 }
 
 div {
@@ -18,10 +19,10 @@ div {
     justify-content: center;
 
     width: 340px;
-    
+
     background-color: #3299a7 ;
 
-    border: solid 1px #000;
+    /* border: solid 1px #000; */
 }
 .keyboard {
     height: 380px;
@@ -31,7 +32,7 @@ div {
     flex-direction: column;
 
     min-height: 60px;
-    
+
     padding: 15px;
     margin-bottom: 25px;
 
@@ -62,10 +63,6 @@ div {
     flex: 1 1 100%;
 }
 
-.column-cl {
-    /* margin: 0 2px; */
-}
-
 .btn-em {
     justify-content: center;
     align-items: center;
@@ -86,7 +83,9 @@ div {
 .a-em {
     background-color: #006978;
 }
-
+.equally {
+    background-color: #015d6b;
+}
 .btn-em:hover {
     background-color: #0097a7;
 }
@@ -96,4 +95,29 @@ div {
     background-color: #0097a7;
     box-shadow: inset 0px 0px 3px rgba(0,0,0,0.5);
 
+}
+
+@keyframes backgroundZero {
+    50% {
+        background: linear-gradient(1deg, #E9CFBA, #5197b8);
+        box-shadow: 0 -200px 100px -100px #59ad94 inset;
+      }
+}
+
+@keyframes backgroundPositive {
+    50% {
+        background: linear-gradient(1deg, #E9CFBA, #5197b8);
+
+      /* background: linear-gradient(1deg, #e67460, #a2e6f5); */
+      box-shadow: 0 -200px 100px -100px #e67460 inset;
+    }
+}
+
+@keyframes backgroundNegative {
+    50% {
+        background: linear-gradient(1deg, #E9CFBA, #5197b8);
+
+      /* background: linear-gradient(1deg, #3080db, #83c5c0); */
+      box-shadow: 0 -200px 100px -100px #3080db inset;
+    }
 }
